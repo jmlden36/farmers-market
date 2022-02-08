@@ -62,11 +62,6 @@ class DayControl extends React.Component {
       dayVisibleOnPage: 0
     }));
   }
-  //lastDay = () => {
-    //this.setState(prevState = ({
-        //dayVisibleOnPage: 5
-    //}))
-  //}
   render(){
     
     let currentlyVisibleState = null;
@@ -87,4 +82,4 @@ class DayControl extends React.Component {
   }
 }
 
-export default DayControl; 
+export default DayControl;

@@ -5,9 +5,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: large;
+  background-image: url("./img/Farmers_Market_303_1__c01395fa-0ae7-427f-afad-2233b2afadd7.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  color: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+
+  font-size: larger;
 }
