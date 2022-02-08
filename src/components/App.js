@@ -8,7 +8,7 @@ function App() {
     <React.Fragment>
       <Header />
       <DayControl />
-      <MonthControl />
+      {/* <MonthControl />  */}
     </React.Fragment>
 
   );
