@@ -59,12 +59,19 @@ class DayControl extends React.Component {
     ];
     let currentlyVisibleState = null;
     const index = this.state.dayVisibleOnPage
-    currentlyVisibleState =  `<p>${marketSchedule[index].day}<br /> marketSchedule[index].location<br /> ${marketSchedule[index].hours}<br /> ${marketSchedule[index].booth}</p>`
-  
+    // currentlyVisibleState = `<div><p>${marketSchedule[index].day}<br> ${marketSchedule[index].location}<br> ${marketSchedule[index].hours}<br> ${marketSchedule[index].booth}</p></div>`
+    currentlyVisibleDay = marketSchedule[index].day
+    currentlyVisibleLocation = marketSchedule[index].location
+    currentlyVisibleHours = marketSchedule[index].hours
+    currentlyVisibleBooth = marketSchedule[index].booth
     return ( 
       <React.Fragment>
-        {currentlyVisibleState}
+        {currentlyVisibleDay}
+        {currentlyVisibleLocation}
+        {currentlyVisibleHours}
+        {currentlyVisibleBooth}
         <div>
+        <p>
         <button onClick={this.handleClickDayPrev}>Previous Day</button> { /* new code */ }
         <button onClick={this.handleClickDayNext}>Next Day</button> { /* new code */ }
         </div>
