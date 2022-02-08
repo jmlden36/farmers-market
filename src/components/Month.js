@@ -5,7 +5,7 @@ function Month(props){
   return (
     <React.Fragment>
         <p><strong>{props.month}</strong></p>
-        <p>{props.selection}</p>
+        <p>{props.selection.join(', ')}</p>
     </React.Fragment>
   );
 }

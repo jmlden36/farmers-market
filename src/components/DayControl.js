@@ -62,7 +62,11 @@ class DayControl extends React.Component {
       dayVisibleOnPage: 0
     }));
   }
-  
+  //lastDay = () => {
+    //this.setState(prevState = ({
+        //dayVisibleOnPage: 5
+    //}))
+  //}
   render(){
     
     let currentlyVisibleState = null;
@@ -75,7 +79,7 @@ class DayControl extends React.Component {
       <React.Fragment>
         {currentlyVisibleState}
         <div>       
-        <button onClick={this.handleClickDayPrev}>Previous Day</button> { /* new code */ }
+        {index===0 ?  <button inactive>Previous Day</button>  : <button onClick={this.handleClickDayPrev}>Previous Day</button> }
         {index===5 ? <button onClick={this.resetDay}>Next</button> : <button onClick={this.handleClickDayNext}>Next Day</button> }
         </div>
       </React.Fragment>

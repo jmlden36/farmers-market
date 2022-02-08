@@ -302,9 +302,10 @@ class MonthControl extends React.Component {
     return ( 
       <React.Fragment>
         {currentlyVisibleState}
-        <div>       
-        <button onClick={this.handleClickMonthPrev}>Previous Month</button> { /* new code */ }
-        {index===5 ? <button onClick={this.resetMonth}>Next</button> : <button onClick={this.handleClickMonthNext}>Next Month</button> }
+        <div>   
+        {index===0 ?  <button inactive>Previous Month</button>  : <button onClick={this.handleClickMonthPrev}>Previous Month</button> }
+    
+        {index===11 ? <button onClick={this.resetMonth}>Next</button> : <button onClick={this.handleClickMonthNext}>Next Month</button> }
         
         </div>
       </React.Fragment>
