@@ -67,9 +67,6 @@ class DayControl extends React.Component {
     
     let currentlyVisibleState = null;
     let index = this.state.dayVisibleOnPage
-    if (index === 5){
-      index = this.resetDay
-    }
     currentlyVisibleState = <Day day={marketSchedule[index].day}
     location={marketSchedule[index].location}
     hours={marketSchedule[index].hours}
@@ -79,7 +76,8 @@ class DayControl extends React.Component {
         {currentlyVisibleState}
         <div>       
         <button onClick={this.handleClickDayPrev}>Previous Day</button> { /* new code */ }
-        <button onClick={this.handleClickDayNext}>Next Day</button> { /* new code */ }
+        {index===5 ? <button onClick={this.resetDay}>Next</button> : <button onClick={this.handleClickDayNext}>Next Day</button> }
+        
         </div>
       </React.Fragment>
     );
