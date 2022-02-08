@@ -77,7 +77,6 @@ class DayControl extends React.Component {
         <div>       
         <button onClick={this.handleClickDayPrev}>Previous Day</button> { /* new code */ }
         {index===5 ? <button onClick={this.resetDay}>Next</button> : <button onClick={this.handleClickDayNext}>Next Day</button> }
-        
         </div>
       </React.Fragment>
     );
