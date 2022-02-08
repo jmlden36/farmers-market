@@ -1,4 +1,5 @@
 import React from "react";
+import Day from "react";
 
 class DayControl extends React.Component {
 
@@ -19,59 +20,14 @@ class DayControl extends React.Component {
     }));
   }
   render(){
-    const marketSchedule = [  
-      {  
-        day: "Sunday",
-        location: "Lents International",
-        hours: "9:00am - 2:00pm",
-        booth: "4A"
-      },
-      {  
-        day: "Monday",
-        location: "Pioneer Courthouse Square",
-        hours: "10:00am - 2:00pm",
-        booth: "7C"
-      },
-      {  
-        day: "Tuesday",
-        location: "Hillsboro",
-        hours: "5:00pm - 8:30pm",
-        booth: "1F"
-      },
-      {  
-        day: "Wednesday",
-        location: "Shemanski Park",
-        hours: "10:00am - 2:00pm",
-        booth: "3E"
-      },
-      {  
-        day: "Thursday",
-        location: "Northwest Portland",
-        hours: "2:00pm - 6:00pm",
-        booth: "6D"
-      },
-      {  
-        day: "Saturday",
-        location: "Beaverton",
-        hours: "10:00am - 1:30pm",
-        booth: "9G"
-      }
-    ];
+    
     let currentlyVisibleState = null;
     const index = this.state.dayVisibleOnPage
-    // currentlyVisibleState = `<div><p>${marketSchedule[index].day}<br> ${marketSchedule[index].location}<br> ${marketSchedule[index].hours}<br> ${marketSchedule[index].booth}</p></div>`
-    currentlyVisibleDay = marketSchedule[index].day
-    currentlyVisibleLocation = marketSchedule[index].location
-    currentlyVisibleHours = marketSchedule[index].hours
-    currentlyVisibleBooth = marketSchedule[index].booth
+    currentlyVisibleState = <Day />
     return ( 
       <React.Fragment>
-        {currentlyVisibleDay}
-        {currentlyVisibleLocation}
-        {currentlyVisibleHours}
-        {currentlyVisibleBooth}
-        <div>
-        <p>
+        {currentlyVisibleState}
+        <div>       
         <button onClick={this.handleClickDayPrev}>Previous Day</button> { /* new code */ }
         <button onClick={this.handleClickDayNext}>Next Day</button> { /* new code */ }
         </div>
