@@ -72,8 +72,10 @@ class DayControl extends React.Component {
     booth={marketSchedule[index].booth}/>
     return ( 
       <React.Fragment>
+        <div id="day-box">
+        <h4>Daily Market Schedule</h4>
         {currentlyVisibleState}
-        <div>       
+               
         {index===0 ?  <button inactive>Previous Day</button>  : <button onClick={this.handleClickDayPrev}>Previous Day</button> }
         {index===5 ? <button onClick={this.resetDay}>Next</button> : <button onClick={this.handleClickDayNext}>Next Day</button> }
         </div>
