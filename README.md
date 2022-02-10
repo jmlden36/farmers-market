@@ -1,3 +1,30 @@
+# Farmers Market React Website
+
+## By: Morgan Waites
+
+#### Farmers market webpage shows seasonal produce and schedule.
+
+![Alt text](./src/img/farmersMarketDiagram.png?raw=true "Component Diagram")
+
+## Technologies Used
+
+* _React library_
+* _Javascript_
+* _Node_
+* _Webpack_
+* _Babel_
+
+## Description
+
+Uses local state to toggle between different days with conditional rendering. Shows Avery's Organic Produce seasonal offerings and schedule of markets.
+
+## Setup Instructions
+
+* Clone this repository to desired directory on computer
+* Navigate into directory of project created
+* npm install
+* npm run start and go to localhost:8000 in browser to view app.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +95,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## License
+
+[MIT](https://opensource.org/licenses/MIT) Copyright (c) 2022 Morgan Waites
