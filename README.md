@@ -23,7 +23,7 @@ Uses local state to toggle between different days with conditional rendering. Sh
 * Clone this repository to desired directory on computer
 * Navigate into directory of project created
 * npm install
-* npm run start and go to localhost:8000 in browser to view app.
+* npm run start and go to localhost:3000 in browser to view app.
 
 # Getting Started with Create React App
 
