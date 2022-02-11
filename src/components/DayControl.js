@@ -73,7 +73,7 @@ class DayControl extends React.Component {
     return ( 
       <React.Fragment>
         <div id="day-box">
-        <h4>Daily Market Schedule</h4>
+        <h4 style={{fontSize:"1.25rem"}}>Daily Market Schedule</h4>
         {currentlyVisibleState}
                
         {index===0 ?  <button inactive>Previous Day</button>  : <button onClick={this.handleClickDayPrev}>Previous Day</button> }
