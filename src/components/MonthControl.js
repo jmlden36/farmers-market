@@ -301,10 +301,10 @@ class MonthControl extends React.Component {
     />
     return ( 
       <React.Fragment>
-         <div id="month-box">  
-         <h4 style={{fontSize:"1.25rem"}}>Seasonal Produce Offerings</h4> 
+        <div id="month-box">  
+        <h4 style={{fontSize:"1.25rem"}}>Seasonal Produce Offerings</h4> 
         {currentlyVisibleState}
-       
+      
         {index===0 ?  <button inactive>Previous Month</button>  : <button onClick={this.handleClickMonthPrev}>Previous Month</button> }
     
         {index===11 ? <button onClick={this.resetMonth}>Next</button> : <button onClick={this.handleClickMonthNext}>Next Month</button> }
