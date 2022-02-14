@@ -11,6 +11,11 @@ export default (state = {}, action) => {
       return Object.assign({}, state, {
         dayVisibleOnPage: prevDay
       });
+    case 'RESET_DAY':
+      const resetDay = 0;
+      return Object.assign({}, state, {
+        dayVisibleOnPage: resetDay
+      })
     case 'NEXT_MONTH':
       const nextMonth = monthVisibleOnPage + 1;
       return Object.assign({}, state, {
@@ -21,8 +26,12 @@ export default (state = {}, action) => {
       return Object.assign({}, state, {
         monthVisibleOnPage: prevMonth
       });
-      
+    case 'RESET_MONTH':
+      const resetMonth = 0;
+      return Object.assign({}, state, {
+        monthVisibleOnPage: resetMonth
+      })
     default:
-      return state;
+      return {dayVisibleOnPage: 0, monthVisibleOnPage: 0};
   }
 };

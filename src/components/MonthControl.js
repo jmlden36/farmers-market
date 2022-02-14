@@ -1,5 +1,8 @@
 import React from "react";
 import Month from "./Month";
+import { connect } from 'react-redux';
+import PropTypes from "prop-types";
+
 const availableProduce = [  
   {  
     month: "January",
@@ -277,25 +280,35 @@ class MonthControl extends React.Component {
     };
   }
   handleClickMonthNext = () => {
-    this.setState(prevState => ({
-      monthVisibleOnPage: prevState.monthVisibleOnPage + 1
-    }));
+    const { dispatch } = this.props;
+    const action = {
+      type: 'NEXT_MONTH',
+      monthVisibleOnPage: this.props.monthVisibleOnPage
+    }
+    dispatch(action);
   }
   handleClickMonthPrev = () => {
-    this.setState(prevState => ({
-      monthVisibleOnPage: prevState.monthVisibleOnPage - 1
-    }));
+    const { dispatch } = this.props;
+    const action = {
+      type: 'PREV_MONTH',
+      monthVisibleOnPage: this.props.monthVisibleOnPage
+    }
+    dispatch(action);
   }
+
   resetMonth = () => {
-    this.setState(prevState => ({
-      monthVisibleOnPage: 0
-    }));
+    const { dispatch } = this.props;;
+    const action = {
+      type: 'RESET_MONTH',
+      monthVisibleOnPage: this.props.monthVisibleOnPage
+    }
+    dispatch(action);
   }
   
   render(){
     
     let currentlyVisibleState = null;
-    let index = this.state.monthVisibleOnPage
+    let index = this.props.monthVisibleOnPage
     currentlyVisibleState = <Month month={availableProduce[index].month}
     selection={availableProduce[index].selection}
     />
@@ -305,7 +318,7 @@ class MonthControl extends React.Component {
         <h4 style={{fontSize:"1.25rem"}}>Seasonal Produce Offerings</h4> 
         {currentlyVisibleState}
       
-        {index===0 ?  <button inactive>Previous Month</button>  : <button onClick={this.handleClickMonthPrev}>Previous Month</button> }
+        {/* {index===0 ?  <button inactive>Previous Month</button>  : <button onClick={this.handleClickMonthPrev}>Previous Month</button> } */}
     
         {index===11 ? <button onClick={this.resetMonth}>Next</button> : <button onClick={this.handleClickMonthNext}>Next Month</button> }
         
@@ -314,5 +327,16 @@ class MonthControl extends React.Component {
     );
   }
 }
+
+MonthControl.propTypes = {
+  monthVisibleOnPage: PropTypes.number
+}
+
+const mapStateToProps = state => {
+  return {
+    monthVisibleOnPage: state.monthVisibleOnPage
+  }
+}
+MonthControl = connect(mapStateToProps)(MonthControl);
 
 export default MonthControl; 

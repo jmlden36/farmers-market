@@ -1,5 +1,8 @@
 import React from "react";
 import Day from "./Day";
+import { connect } from 'react-redux';
+import PropTypes from "prop-types";
+
 const marketSchedule = [  
   {  
     day: "Sunday",
@@ -33,6 +36,12 @@ const marketSchedule = [
     booth: "6D"
   },
   {  
+    day: "Friday",
+    location: "Northwest Portland",
+    hours: "2:00pm - 6:00pm",
+    booth: "6D"
+  },
+  {  
     day: "Saturday",
     location: "Beaverton",
     hours: "10:00am - 1:30pm",
@@ -43,29 +52,39 @@ const marketSchedule = [
 class DayControl extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      dayVisibleOnPage: 0
-    };
+    // this.state = {
+    //   dayVisibleOnPage: 0
+    // };
   }
   handleClickDayNext = () => {
-    this.setState(prevState => ({
-      dayVisibleOnPage: prevState.dayVisibleOnPage + 1
-    }));
+    const { dispatch } = this.props;
+    const action = {
+      type: 'NEXT_DAY',
+      dayVisibleOnPage: this.props.dayVisibleOnPage
+    }
+    dispatch(action);
   }
   handleClickDayPrev = () => {
-    this.setState(prevState => ({
-      dayVisibleOnPage: prevState.dayVisibleOnPage - 1
-    }));
+    const { dispatch } = this.props;
+    const action = {
+      type: 'PREV_DAY',
+      dayVisibleOnPage: this.props.dayVisibleOnPage
+    }
+    dispatch(action);
   }
   resetDay = () => {
-    this.setState(prevState => ({
-      dayVisibleOnPage: 0
-    }));
+    const { dispatch } = this.props;
+    const resetDay = 0;
+    const action = {
+      type: 'RESET_DAY',
+      dayVisibleOnPage: resetDay
+    }
+    dispatch(action);
   }
   render(){
     
     let currentlyVisibleState = null;
-    let index = this.state.dayVisibleOnPage
+    let index = this.props.dayVisibleOnPage
     currentlyVisibleState = <Day day={marketSchedule[index].day}
     location={marketSchedule[index].location}
     hours={marketSchedule[index].hours}
@@ -76,12 +95,23 @@ class DayControl extends React.Component {
         <h4 style={{fontSize:"1.25rem"}}>Daily Market Schedule</h4>
         {currentlyVisibleState}
                
-        {index===0 ?  <button inactive>Previous Day</button>  : <button onClick={this.handleClickDayPrev}>Previous Day</button> }
-        {index===5 ? <button onClick={this.resetDay}>Next</button> : <button onClick={this.handleClickDayNext}>Next Day</button> }
+        {/* {index===0 ?  <button inactive>Previous Day</button>  : <button onClick={this.handleClickDayPrev}>Previous Day</button> } */}
+        {index===6 ? <button onClick={this.resetDay}>Next</button> : <button onClick={this.handleClickDayNext}>Next Day</button> }
         </div>
       </React.Fragment>
     );
   }
 }
+
+DayControl.propTypes = {
+  dayVisibleOnPage: PropTypes.number
+}
+const mapStateToProps = state => {
+  return {
+    dayVisibleOnPage: state.dayVisibleOnPage
+  }
+}
+
+DayControl = connect(mapStateToProps)(DayControl);
 
 export default DayControl;
